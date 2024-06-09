@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <title>SignUp</title>
+  </head>
+  <body>
+    <nav>
+      <h1><span class="logo-click">Link</span>Shink</h1>
+    </nav>
+    <div class="hero">
+      <div class="hero-text">
+        <h2>
+          <span class="logo-click">Link</span>Shink an URL Shortner,
+          <span><strong>Make your url short</strong></span> and
+          <span><strong>also get its analytics.</strong></span>
+        </h2>
+      </div>
+      <div class="login-form">
+        <div class="background">
+          <div class="shape"></div>
+          <div class="shape"></div>
+        </div>
+        <form action="/user" method="post">
+          <h3>Sign-Up</h3>
+          <label for="">Name</label>
+          <input type="text" required name="name"  placeholder="Enter your name"/>
+          <label for="">Email</label>
+          <input type="email" name="email" required placeholder="Enter your email"/>
+          <label for="">Password</label>
+          <input type="password" name="password" required placeholder="Enter a password" />
+          <button type="submit">Sign-UP</button>
+          <p>If you already have an account <a href="/login">Login</a>.</p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

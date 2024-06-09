@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <title>LinkShink</title>
+  </head>
+  <body>
+    <nav>
+      <!-- <div><img src="../asset/logo.png" alt="logo" /></div> -->
+      <div>
+        <h1><span class="logo-click">Link</span>Shink</h1>
+      </div>
+    </nav>
+    <main>
+      <div class="genform">
+        <form method="post" action="/url">
+          <label for="">Enter your link</label>
+          <input type="text" name="url" placeholder="www.example.com" />
+          <button type="submit">Generate</button>
+        </form>
+        <% if (locals.id) { %>
+          <form action="/">
+          <label for="">Your Short URL:</label>
+          <input value=http:localhost:4000/url/<%= id%> readonly/>
+          <button type="submit">GO Back</button>
+        </form>
+        <% } %>
+      </div>
+      
+      <div>
+        <% if (locals.urls) { %>
+          <hr />
+        <table>
+          <thead>
+            <th>Sr.No</th>
+            <th>Short URL</th>
+            <th>Redirect URL</th>
+            <th>Visits</th>
+            <th>Delete</th>
+          </thead>
+          <tbody>
+            <% urls.forEach( (url, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td>http:localhost:4000/url/<%= url.shortId %></td>
+              <td><%= url.redirectURL %></td>
+              <td><%= url.visitHistory.length %></td>
+              <td class="delete-td"><button class="delete-btn" onclick='deleteUrl("<%= url.shortId %>")'>X</button></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
+      </div>
+    </main>
+    <script>
+     async function deleteUrl(id) {
+        await fetch(`/url/${id}`, {
+          method: 'delete'
+        })
+        location.reload()
+      }
+    </script>
+  </body>
+</html>
